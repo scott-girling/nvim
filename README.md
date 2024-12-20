@@ -7,3 +7,4 @@ into the neovim plugin community, I am totally comfortable being uncool and anci
 frown and raise eyebrows when see my editor.
 
 ![Screenshot of my current config](assets/screenshot.png)
+*The font in this screenshot is [Maple V7](https://github.com/subframe7536/maple-font/releases/tag/v7.0-beta32)*
