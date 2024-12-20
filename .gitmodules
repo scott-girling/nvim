@@ -1,0 +1,3 @@
+[submodule "pack/colors/start/nvim-treesitter"]
+	path = pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter

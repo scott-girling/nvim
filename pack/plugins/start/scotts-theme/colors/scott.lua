@@ -1,0 +1,1 @@
+require("scotts-theme").setup()
