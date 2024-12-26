@@ -38,7 +38,7 @@ o.timeoutlen = 400 -- Time to wait for a mapped sequence to complete
 o.undofile = true -- When on, Vim automatically saves undo history to an undo file when writing a buffer to a file, and restores undo history from the same file on buffer read.
 o.wrap = false -- Don't wrap lines
 o.wildignorecase = true -- When set case is ignored when completing file names and directories.
-o.wildmode = "longest:full,full" -- :h 'wildmode'
+o.wildmode = "longest,list,full" -- :h 'wildmode'
 o.grepprg = "rg --vimgrep --smart-case --" -- Use ripgrep
 
 vim.g.netrw_banner = false -- Disable the netrw banner
