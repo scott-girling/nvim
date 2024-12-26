@@ -167,4 +167,4 @@ M.setup = function()
 	end
 end
 
-return M
+M.setup()
