@@ -84,6 +84,7 @@ M.highlights = {
 	Special = { fg = M.colors.lime_green, italic = true },
 	Type = { fg = M.colors.magenta },
 	Number = { fg = M.colors.red_bright },
+	WildMenu = { bg = M.colors.magenta, fg = M.colors.black, bold = true },
 	["@number"] = { fg = M.colors.red_bright },
 	["@number.float"] = { link = "@number" },
 	["@boolean.php"] = { fg = M.colors.cyan },
