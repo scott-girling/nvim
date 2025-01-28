@@ -92,6 +92,7 @@ M.highlights = {
 	["@keyword.modifier.php"] = { fg = M.colors.yellow_pale, italic = true },
 	["@type.php"] = { fg = M.colors.magenta_dim, italic = true },
 	["@variable.member.php"] = { link = "@property.php" },
+	["@markup.heading.2.markdown"] = { fg = M.colors.green },
 }
 
 M.export_kitty_theme = function()
