@@ -1,6 +1,3 @@
 [submodule "pack/plugins/start/nvim-treesitter"]
 	path = pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
-[submodule "pack/plugins/start/mkdnflow"]
-	path = pack/plugins/start/mkdnflow
-	url = https://github.com/jakewvincent/mkdnflow.nvim
