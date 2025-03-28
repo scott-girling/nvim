@@ -67,3 +67,6 @@ function VisualGitBlame()
 end
 
 s({"n", "v"}, "<leader>gb", "<cmd>lua VisualGitBlame()<cr>")
+
+-- Utilities
+s("n", "<leader>cr", [[:execute 'read !'.getline('.')<CR>]]) -- "Command Run" execute the line the cursor is on and print the results to the buffer
