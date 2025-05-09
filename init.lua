@@ -1,4 +1,5 @@
 require("options")
 require("keymaps")
 require("autocmds")
+require("snippets")
 require("plugins.treesitter")
