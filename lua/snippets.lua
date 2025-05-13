@@ -5,6 +5,7 @@ local snippets = {
 		["fn"] = "function ${1:name}(${2:params}) {\n\t${3:body}\n}",
 		["if"] = "if (${1:condition}) {\n\t${2:body}\n}",
 		["for"] = "for (${1:i} = ${2:0}; ${1:i} < ${3:count}; ${1:i}++) {\n\t${4:body}\n}",
+		["vd"] = "var_dump(${1:__LINE__}); die;$0"
 	},
 	-- Lua snippets
 	lua = {
