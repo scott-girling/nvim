@@ -44,3 +44,8 @@ o.grepprg = "rg --vimgrep --smart-case --" -- Use ripgrep
 vim.g.netrw_banner = false -- Disable the netrw banner
 
 vim.cmd.colorscheme "scott"
+
+-- Plugin specific options
+
+-- Dadbod UI
+vim.g.db_ui_use_nerd_fonts = 1
