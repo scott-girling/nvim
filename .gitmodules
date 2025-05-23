@@ -7,9 +7,3 @@
 [submodule "pack/plugins/start/vim-dadbod-ui"]
 	path = pack/plugins/start/vim-dadbod-ui
 	url = https://github.com/kristijanhusak/vim-dadbod-ui
-[submodule "pack/plugins/start/yazi.nvim"]
-	path = pack/plugins/start/yazi.nvim
-	url = https://github.com/mikavilpas/yazi.nvim
-[submodule "pack/plugins/start/plenary.nvim"]
-	path = pack/plugins/start/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim
