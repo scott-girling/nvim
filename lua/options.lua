@@ -13,13 +13,13 @@ o.smartcase = true -- Override the 'ignorecase' option if the search pattern con
 o.inccommand = "split" -- Show a partial off-screen preview with the search results
 o.list = true -- Show non-text characters
 o.listchars = {
-        eol = "↲",
-        tab = "󰌒 ",
-        trail = "·",
-        extends = "►",
-        precedes = "◄",
-        space = "·",
-        nbsp = "␣",
+	eol = "↲",
+	tab = "󰌒 ",
+	trail = "·",
+	extends = "►",
+	precedes = "◄",
+	space = "·",
+	nbsp = "␣",
 }
 o.mouse = "" -- Why use a mouse?
 o.number = true -- Line numbers
@@ -49,3 +49,7 @@ vim.cmd.colorscheme "scott"
 
 -- Dadbod UI
 vim.g.db_ui_use_nerd_fonts = 1
+
+vim.keymap.set("n", "<C-e>", function()
+	require("yazi").yazi()
+end)
