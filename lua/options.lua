@@ -49,3 +49,7 @@ vim.cmd.colorscheme "scott"
 
 -- Dadbod UI
 vim.g.db_ui_use_nerd_fonts = 1
+
+-- Oil.nvim
+require("oil").setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

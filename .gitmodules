@@ -7,3 +7,6 @@
 [submodule "pack/plugins/start/vim-dadbod-ui"]
 	path = pack/plugins/start/vim-dadbod-ui
 	url = https://github.com/kristijanhusak/vim-dadbod-ui
+[submodule "pack/plugins/start/oil.nvim"]
+	path = pack/plugins/start/oil.nvim
+	url = https://github.com/stevearc/oil.nvim

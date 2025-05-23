@@ -52,9 +52,9 @@ s("n", "<leader>tc", function()
 	end
 end)
 
--- Netrw
-s("n", "-", "<cmd>Explore<cr>")
-s("n", "_", "<cmd>Vexplore<cr>")
+-- Netrw (disabled in favour of Oil.nvim)
+-- s("n", "-", "<cmd>Explore<cr>")
+-- s("n", "_", "<cmd>Vexplore<cr>")
 
 -- Git
 function VisualGitBlame()
