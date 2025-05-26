@@ -7,9 +7,15 @@
 [submodule "pack/plugins/start/vim-dadbod-ui"]
 	path = pack/plugins/start/vim-dadbod-ui
 	url = https://github.com/kristijanhusak/vim-dadbod-ui
-[submodule "pack/plugins/start/oil.nvim"]
-	path = pack/plugins/start/oil.nvim
-	url = https://github.com/stevearc/oil.nvim
-[submodule "pack/plugins/start/nvim-tree.lua"]
-	path = pack/plugins/start/nvim-tree.lua
-	url = https://github.com/nvim-tree/nvim-tree.lua
+[submodule "pack/plugins/start/neo-tree.nvim"]
+	path = pack/plugins/start/neo-tree.nvim
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim
+[submodule "pack/plugins/start/plenary.nvim"]
+	path = pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "pack/plugins/start/mini.icons"]
+	path = pack/plugins/start/mini.icons
+	url = https://github.com/echasnovski/mini.icons
+[submodule "pack/plugins/start/nui.nvim"]
+	path = pack/plugins/start/nui.nvim
+	url = https://github.com/MunifTanjim/nui.nvim

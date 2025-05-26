@@ -14,6 +14,8 @@ s("n", "<leader>Q", "<cmd>qwa<cr>")
 s("n", "<leader>o", "<cmd>browse filt '".. vim.fn.getcwd() .."' old<cr>")
 s("n", "<leader>O", "<cmd>browse filt! '.git/' old<cr>")
 -- s("n", "<leader>e", ":e<space><c-r>=expand(\"%:h\")<cr>/")
+s("n", "<leader>e", ":Neotree filesystem reveal<cr>")
+s("n", "-", "<cmd>Neotree position=current reveal<cr>")
 
 -- lgrep
 s("n", "<leader>sw", "<cmd>silent<space>lgrep!<space><cword><cr><cmd>lopen<cr>")
