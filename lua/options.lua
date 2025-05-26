@@ -53,3 +53,10 @@ vim.g.db_ui_use_nerd_fonts = 1
 -- Oil.nvim
 require("oil").setup()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Nvim Tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("nvim-tree").setup()
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFile<cr>")
