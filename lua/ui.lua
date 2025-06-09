@@ -16,6 +16,13 @@ local function abbreviate_relative(rel_path)
 	return table.concat(abbreviated, '/')
 end
 
+-- Function to set tab-specific CWD
+local function set_tab_cwd()
+	local tabnr = vim.fn.tabpagenr()
+	local cwd = vim.fn.getcwd()
+	vim.fn.settabvar(tabnr, 'cwd', cwd)
+end
+
 -- Custom tabline function
 function _G.my_tabline()
 	local parts = {}
@@ -24,9 +31,11 @@ function _G.my_tabline()
 	for i = 1, total_tabs do
 		local tabnr = i
 		-- Get the tab-specific CWD or fall back to global CWD
-		local cwd = vim.fn.gettabvar(tabnr, 'cwd', '') -- Default to empty string if not set
+		local cwd = vim.fn.gettabvar(tabnr, 'cwd', '')
 		if cwd == '' then
 			cwd = vim.fn.getcwd()
+			-- Set the cwd for this tab to avoid future fallbacks
+			vim.fn.settabvar(tabnr, 'cwd', cwd)
 		end
 		-- Ensure cwd is always a valid directory path
 		if cwd == '' then
@@ -70,3 +79,15 @@ end
 
 -- Apply the tabline
 vim.o.tabline = '%!v:lua.my_tabline()'
+
+-- Autocommand to update tab-specific CWD when it changes
+vim.api.nvim_create_autocmd({"DirChanged"}, {
+	callback = function()
+		set_tab_cwd()
+	end,
+})
+
+-- Initialize CWD for existing tabs when this script loads
+for i = 1, vim.fn.tabpagenr('$') do
+	vim.fn.settabvar(i, 'cwd', vim.fn.getcwd())
+end
