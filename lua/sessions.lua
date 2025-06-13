@@ -45,3 +45,14 @@ end
 vim.keymap.set("n", "<leader>ps", save_session, { desc = "Save session" })
 vim.keymap.set("n", "<leader>pl", load_session, { desc = "Load session" })
 vim.keymap.set("n", "<leader>pd", delete_session, { desc = "Delete session" })
+
+-- Automatic session saving on exit
+vim.api.nvim_create_autocmd("VimLeave", {
+	group = vim.api.nvim_create_augroup("SessionAutoSave", { clear = true }),
+	callback = function()
+		-- Only save if there are actual buffers open (not just an empty Neovim instance)
+		if vim.fn.bufnr("$") > 1 or vim.fn.bufname() ~= "" then
+			save_session()
+		end
+	end,
+})
