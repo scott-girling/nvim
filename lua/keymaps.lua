@@ -23,7 +23,7 @@ s("n", "<leader>ss", ":silent lgrep<space>")
 s("n", "<leader>sf", "<cmd>silent lgrep!<space>'function <cword>'<cr><cmd>lopen<cr>")
 
 -- Buffers
-s("n", "<leader><leader>", "<cmd>ls<cr>:b<space>")
+s("n", "<leader><leader>", ":Neotree buffers reveal<cr>")
 s("n", "[b", "<cmd>bp<cr>")
 s("n", "]b", "<cmd>bp<cr>")
 s("n", "<leader>bd", "<cmd>bd<cr>")
