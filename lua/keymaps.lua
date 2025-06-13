@@ -39,8 +39,8 @@ s("n", "[l", "<cmd>lprev<cr>")
 s("n", "]l", "<cmd>lnext<cr>")
 
 -- Sessions (persistence)
-s("n", "<leader>ps", "<cmd>mksession!<cr>")
-s("n", "<leader>pl", "<cmd>source Session.vim<cr>")
+-- s("n", "<leader>ps", "<cmd>mksession!<cr>")
+-- s("n", "<leader>pl", "<cmd>source Session.vim<cr>")
 
 -- Tabpages
 s("n", "<leader>te", ":tabedit<space>")
