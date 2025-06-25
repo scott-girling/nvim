@@ -1,4 +1,3 @@
--- Define a function to show and filter oldfiles
 local function browse_oldfiles(filter_dir, exclude_git)
 	-- Get the oldfiles list
 	local oldfiles = vim.v.oldfiles
@@ -6,10 +5,6 @@ local function browse_oldfiles(filter_dir, exclude_git)
 		vim.notify("No old files found.", vim.log.levels.WARN)
 		return
 	end
-
-	-- Get current working directory if filter_dir is not provided
-	filter_dir = filter_dir or vim.fn.getcwd()
-	local is_cwd = filter_dir == vim.fn.getcwd()
 
 	-- Filter oldfiles
 	local filtered = {}
@@ -37,7 +32,7 @@ local function browse_oldfiles(filter_dir, exclude_git)
 	end
 
 	-- Create a formatted list with a heading and sequential indices
-	local title = is_cwd and "Oldfiles (cwd)" or "Oldfiles (all)"
+	local title = filter_dir and "Oldfiles (cwd)" or "Oldfiles (all)"
 	local lines = { title } -- Heading
 	for i, file in ipairs(filtered) do
 		-- Show relative path for brevity
@@ -68,7 +63,6 @@ local function browse_oldfiles(filter_dir, exclude_git)
 	-- Move cursor to the first file entry (line 2, since line 1 is the heading)
 	vim.api.nvim_win_set_cursor(win, {2, 0})
 
-	-- Function to handle file opening
 	local function open_file(open_cmd)
 		local line = vim.api.nvim_get_current_line()
 		local index = tonumber(line:match("^(%d+):"))
