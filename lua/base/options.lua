@@ -39,7 +39,7 @@ o.undofile = true -- When on, Vim automatically saves undo history to an undo fi
 o.wrap = false -- Don't wrap lines
 o.wildignorecase = true -- When set case is ignored when completing file names and directories.
 o.wildmode = "longest:full,full" -- :h 'wildmode'
-o.grepprg = "rg --vimgrep --smart-case --" -- Use ripgrep
+o.laststatus = 3
 
 vim.g.netrw_banner = false -- Disable the netrw banner
 
