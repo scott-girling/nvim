@@ -33,8 +33,8 @@ local function toggle_terminal()
 end
 
 -- Map <C-s> to toggle the terminal
-vim.api.nvim_set_keymap('n', '<C-s>', '<cmd>lua require("terminal").toggle_terminal()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<C-s>', '<C-\\><C-n><cmd>lua require("terminal").toggle_terminal()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-s>', '<cmd>lua require("utils.terminal").toggle_terminal()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-s>', '<C-\\><C-n><cmd>lua require("utils.terminal").toggle_terminal()<CR>', { noremap = true, silent = true })
 
 -- Expose the toggle_terminal function
 return {
