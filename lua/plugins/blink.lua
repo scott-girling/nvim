@@ -8,7 +8,13 @@ if okay then
 		},
 		completion = { documentation = { auto_show = false } },
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			default = { 'lsp', 'buffer', 'snippets', 'path' },
+			per_filetype = {
+				sql = { 'dadbod' },
+			},
+			providers = {
+				dadbod = { module = "vim_dadbod_completion.blink" },
+			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning", prebuilt_binaries = { force_version = "v1.4.1" } }
 	})

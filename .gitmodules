@@ -25,3 +25,6 @@
 [submodule "pack/plugins/start/friendly-snippets"]
 	path = pack/plugins/start/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets
+[submodule "pack/plugins/start/vim-dadbod-completion"]
+	path = pack/plugins/start/vim-dadbod-completion
+	url = https://github.com/kristijanhusak/vim-dadbod-completion
