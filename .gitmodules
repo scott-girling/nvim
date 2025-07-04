@@ -28,3 +28,6 @@
 [submodule "pack/plugins/start/vim-dadbod-completion"]
 	path = pack/plugins/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
+[submodule "pack/plugins/start/nvim-treesitter-context"]
+	path = pack/plugins/start/nvim-treesitter-context
+	url = https://github.com/nvim-treesitter/nvim-treesitter-context
