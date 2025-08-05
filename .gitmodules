@@ -31,3 +31,6 @@
 [submodule "pack/plugins/start/nvim-treesitter-context"]
 	path = pack/plugins/start/nvim-treesitter-context
 	url = https://github.com/nvim-treesitter/nvim-treesitter-context
+[submodule "pack/plugins/start/gitsigns.nvim"]
+	path = pack/plugins/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
