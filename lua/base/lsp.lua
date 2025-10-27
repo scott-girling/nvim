@@ -59,6 +59,12 @@ local servers = {
 		root_markers = { 'composer.json', '.phpactor.json', '.phpactor.yml' },
 		workspace_required = true,
 	},
+
+	nixd = {
+		cmd = { 'nixd' },
+		filetypes = { 'nix' },
+		root_markers = { 'flake.nix', '.git' },
+	},
 }
 
 --- Function to configure and enable a language server
