@@ -49,3 +49,6 @@
 [submodule "pack/plugins/start/kanagawa.nvim"]
 	path = pack/plugins/start/kanagawa.nvim
 	url = https://github.com/rebelot/kanagawa.nvim
+[submodule "pack/plugins/start/trouble.nvim"]
+	path = pack/plugins/start/trouble.nvim
+	url = https://github.com/folke/trouble.nvim
