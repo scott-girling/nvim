@@ -46,6 +46,6 @@
 [submodule "pack/plugins/start/fzf-lua"]
 	path = pack/plugins/start/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua
-[submodule "pack/plugins/start/catppuccin"]
-	path = pack/plugins/start/catppuccin
-	url = https://github.com/catppuccin/nvim
+[submodule "pack/plugins/start/kanagawa.nvim"]
+	path = pack/plugins/start/kanagawa.nvim
+	url = https://github.com/rebelot/kanagawa.nvim
