@@ -43,7 +43,7 @@ o.laststatus = 3
 
 vim.g.netrw_banner = false -- Disable the netrw banner
 
-vim.cmd.colorscheme "scott"
+vim.cmd.colorscheme "catppuccin-frappe"
 
 -- Plugin specific options
 
