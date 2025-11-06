@@ -97,60 +97,115 @@ M.highlights = {
 	["@variable.member.php"] = { link = "@property.php" },
 	["@markup.heading.2.markdown"] = { fg = M.colors.green },
 	["@markup.heading.3.markdown"] = { fg = M.colors.orange },
+
+	-- Neogit Integration
+	NeogitBranch = { fg = M.colors.magenta, bold = true },
+	NeogitRemote = { fg = M.colors.cyan, bold = true },
+	NeogitHunkHeader = { fg = M.colors.blue_bright, bg = M.colors.blue_mid_grey },
+	NeogitHunkHeaderHighlight = { fg = M.colors.blue, bg = M.colors.blue_midnight, bold = true },
+	NeogitDiffContext = { fg = M.colors.fg, bg = M.colors.bg },
+	NeogitDiffContextHighlight = { fg = M.colors.white, bg = M.colors.blue_mid_grey },
+	NeogitDiffAdd = { fg = M.colors.green, bg = M.colors.black },
+	NeogitDiffAddHighlight = { fg = M.colors.green_bright, bg = M.colors.black, bold = true },
+	NeogitDiffDelete = { fg = M.colors.red, bg = M.colors.black },
+	NeogitDiffDeleteHighlight = { fg = M.colors.red_bright, bg = M.colors.black, bold = true },
+
+	-- Commit & Log View
+	NeogitCommitViewHeader = { fg = M.colors.yellow, bold = true },
+	NeogitCommitViewDescription = { fg = M.colors.fg },
+	NeogitCommitViewAuthor = { fg = M.colors.orange, italic = true },
+	NeogitCommitViewDate = { fg = M.colors.green_greyish },
+
+	-- Popup & Status
+	NeogitPopupSectionTitle = { fg = M.colors.cyan, bold = true },
+	NeogitPopupBranchName = { fg = M.colors.magenta },
+	NeogitPopupConfig = { fg = M.colors.yellow_pale },
+	NeogitPopupSwitchKey = { fg = M.colors.red_hard },
+	NeogitPopupSwitchEnabled = { fg = M.colors.green },
+	NeogitPopupSwitchDisabled = { fg = M.colors.grey_dark_mid },
+	NeogitPopupOptionKey = { fg = M.colors.orange },
+	NeogitPopupOptionEnabled = { fg = M.colors.green },
+	NeogitPopupOptionDisabled = { fg = M.colors.grey_dark_mid },
+
+	-- Notification / Cursor
+	NeogitNotificationInfo = { fg = M.colors.blue },
+	NeogitNotificationWarning = { fg = M.colors.yellow },
+	NeogitNotificationError = { fg = M.colors.red, bold = true },
+
+	-- Cursor in Neogit buffers
+	NeogitCursorLine = { bg = M.colors.blue_mid_grey },
+
+	-- File names in status
+	NeogitFilePath = { fg = M.colors.cyan, italic = true },
+
+	-- Staged/Unstaged indicators
+	NeogitStagedChanges = { fg = M.colors.green, bold = true },
+	NeogitUnstagedChanges = { fg = M.colors.orange, bold = true },
+	NeogitUntrackedFiles = { fg = M.colors.magenta_dim, italic = true },
+
+	-- Graph colors (if using unicode/kitty style)
+	NeogitGraphAuthor = { fg = M.colors.orange },
+	NeogitGraphRed = { fg = M.colors.red },
+	NeogitGraphGreen = { fg = M.colors.green },
+	NeogitGraphYellow = { fg = M.colors.yellow },
+	NeogitGraphBlue = { fg = M.colors.blue },
+	NeogitGraphPurple = { fg = M.colors.magenta },
+	NeogitGraphCyan = { fg = M.colors.cyan },
+	NeogitGraphBold = { bold = true },
 }
 
 M.export_kitty_theme = function()
 	local c = M.colors
 	local file = os.getenv("HOME") .. "/.config/kitty/" .. M.colorscheme_name .. ".conf"
 	local contents = [[
-# FG / BG
-foreground %s
-background %s
+	# FG / BG
+	foreground %s
+	background %s
 
-# Black
-color0 %s
-color8 %s
+	# Black
+	color0 %s
+	color8 %s
 
-# Red
-color1 %s
-color9 %s
+	# Red
+	color1 %s
+	color9 %s
 
-# Green
-color2  %s
-color10 %s
+	# Green
+	color2  %s
+	color10 %s
 
-# Yellow
-color3  %s
-color11 %s
+	# Yellow
+	color3  %s
+	color11 %s
 
-# Blue
-color4  %s
-color12 %s
+	# Blue
+	color4  %s
+	color12 %s
 
-# Magenta
-color5  %s
-color13 %s
+	# Magenta
+	color5  %s
+	color13 %s
 
-# Cyan
-color6  %s
-color14 %s
+	# Cyan
+	color6  %s
+	color14 %s
 
-# White
-color7  %s
-color15 %s
+	# White
+	color7  %s
+	color15 %s
 
-active_tab_foreground %s
-active_tab_background %s
-active_tab_font_style bold-italic
-inactive_tab_foreground %s
-inactive_tab_background %s
-inactive_tab_font_style normal
+	active_tab_foreground %s
+	active_tab_background %s
+	active_tab_font_style bold-italic
+	inactive_tab_foreground %s
+	inactive_tab_background %s
+	inactive_tab_font_style normal
 
-cursor %s
+	cursor %s
 
-active_border_color %s
-inactive_border_color %s
-]]
+	active_border_color %s
+	inactive_border_color %s
+	]]
 
 	contents = string.format(contents, c.fg, c.bg, c.black, c.black_bright, c.red, c.red_bright, c.green, c.green_bright, c.yellow, c.yellow_bright, c.blue, c.blue_bright, c.magenta, c.magenta_bright, c.cyan, c.cyan_bright, c.white, c.white_bright, c.bg, c.green, c.bg_brighter, c.blue_mid_grey, c.green_greyish, c.green, c.grey_charcoal)
 
