@@ -43,9 +43,9 @@
 [submodule "pack/plugins/start/neogit"]
 	path = pack/plugins/start/neogit
 	url = https://github.com/NeogitOrg/neogit
-[submodule "pack/plugins/start/fzf-lua"]
-	path = pack/plugins/start/fzf-lua
-	url = https://github.com/ibhagwan/fzf-lua
 [submodule "pack/plugins/start/trouble.nvim"]
 	path = pack/plugins/start/trouble.nvim
 	url = https://github.com/folke/trouble.nvim
+[submodule "pack/plugins/start/telescope.nvim"]
+	path = pack/plugins/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
