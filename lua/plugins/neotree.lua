@@ -5,5 +5,5 @@ if okay then
 
 	s("n", "<leader>e", ":Neotree toggle reveal<cr>")
 	s("n", "-", "<cmd>Neotree position=current reveal<cr>")
-	s("n", "<leader><leader>", ":Neotree buffers reveal<cr>")
+	-- s("n", "<leader><leader>", ":Neotree buffers reveal<cr>")
 end
