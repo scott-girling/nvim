@@ -1,6 +1,6 @@
--- require("utils.snippets")
 require("utils.terminal")
 require("utils.oldfiles")
 require("utils.sessions")
-require("utils.git_blame")
 require("utils.buffers")
+-- require("utils.git_blame")
+-- require("utils.snippets")
