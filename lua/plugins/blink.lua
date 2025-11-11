@@ -16,6 +16,6 @@ if okay then
 				dadbod = { module = "vim_dadbod_completion.blink" },
 			},
 		},
-		fuzzy = { implementation = "prefer_rust_with_warning", prebuilt_binaries = { force_version = "v1.7.0" } }
+		fuzzy = { implementation = "prefer_rust_with_warning", prebuilt_binaries = { force_version = "v1.6.0" } }
 	})
 end
