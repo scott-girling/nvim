@@ -4,5 +4,7 @@ if okay then
 	require('trouble').setup()
 	local s = vim.keymap.set
 
-	s("n", "<leader>dd", ":Trouble diagnostics toggle<cr>")
+	s("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
+	s("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=true<cr>")
+	s("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=true win.position=right<cr>")
 end
