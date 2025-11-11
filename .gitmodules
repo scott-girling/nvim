@@ -13,9 +13,6 @@
 [submodule "pack/plugins/start/plenary.nvim"]
 	path = pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
-[submodule "pack/plugins/start/mini.icons"]
-	path = pack/plugins/start/mini.icons
-	url = https://github.com/echasnovski/mini.icons
 [submodule "pack/plugins/start/nui.nvim"]
 	path = pack/plugins/start/nui.nvim
 	url = https://github.com/MunifTanjim/nui.nvim
@@ -49,3 +46,6 @@
 [submodule "pack/plugins/start/telescope.nvim"]
 	path = pack/plugins/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "pack/plugins/start/nvim-web-devicons"]
+	path = pack/plugins/start/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons
