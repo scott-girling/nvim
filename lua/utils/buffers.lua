@@ -183,6 +183,6 @@ local function browse_buffers()
 end
 
 -- Trigger
-vim.keymap.set("n", "<leader><leader>",
+vim.keymap.set("n", "<leader>;",
                browse_buffers,
                { desc = "Browse buffers by tabpage pwd → directory tree" })
