@@ -16,12 +16,6 @@
 [submodule "pack/plugins/start/nui.nvim"]
 	path = pack/plugins/start/nui.nvim
 	url = https://github.com/MunifTanjim/nui.nvim
-[submodule "pack/plugins/start/blink.cmp"]
-	path = pack/plugins/start/blink.cmp
-	url = https://github.com/saghen/blink.cmp
-[submodule "pack/plugins/start/friendly-snippets"]
-	path = pack/plugins/start/friendly-snippets
-	url = https://github.com/rafamadriz/friendly-snippets
 [submodule "pack/plugins/start/vim-dadbod-completion"]
 	path = pack/plugins/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
