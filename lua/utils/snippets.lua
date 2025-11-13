@@ -1,4 +1,6 @@
--- Table to store snippets by filetype and global snippets
+-- snippets.lua
+-- Improved custom snippet system using Neovim's built-in vim.snippet API
+
 local snippets = {
 	-- PHP snippets
 	php = {
@@ -19,91 +21,68 @@ local snippets = {
 		["note"] = "NOTE: ${1:comment}",
 		["date"] = "${1:today} = os.date('%Y-%m-%d')",
 	},
-	-- Default snippets (for triggers not found in filetype or global)
+	-- Default fallback snippets
 	default = {
 		["fn"] = "function ${1:name}(${2:params})\n\t${3:body}\nend",
 		["if"] = "if ${1:condition} then\n\t${2:body}\nend",
 	},
 }
 
--- Function to count placeholders in a snippet
-local function count_placeholders(snippet)
-	local count = 0
-	for _ in snippet:gmatch("%${%d+:.-}") do
-		count = count + 1
-	end
-	return count
-end
-
--- Variable to store the current snippet and its placeholder count
-local current_snippet = nil
-local placeholder_count = 0
-local jump_count = 0
-
--- Function to check if the word before the cursor matches a snippet trigger
+-- Safely get the word before cursor, only if followed by non-word char or EOL
 local function get_trigger_word()
 	local line = vim.api.nvim_get_current_line()
 	local col = vim.api.nvim_win_get_cursor(0)[2]
 	local before_cursor = line:sub(1, col)
-	local word = before_cursor:match("%w+$") or ""
-	return word
+	local word = before_cursor:match("(%w+)[^%w]*$")
+	return word or ""
 end
 
--- Function to expand a snippet
+-- Expand snippet by replacing trigger and calling vim.snippet.expand
 local function expand_snippet()
 	local trigger = get_trigger_word()
-	local filetype = vim.bo.filetype
-	-- Look for snippet in filetype-specific table, then global, then default
-	local snippet = (snippets[filetype] and snippets[filetype][trigger])
+	if #trigger == 0 then return end
+
+	local ft = vim.bo.filetype
+	local snippet = snippets[ft] and snippets[ft][trigger]
 	or snippets.global[trigger]
 	or snippets.default[trigger]
-	if snippet then
-		-- Store the snippet and count its placeholders
-		current_snippet = snippet
-		placeholder_count = count_placeholders(snippet)
-		jump_count = 0
-		-- Delete the trigger word
-		local line = vim.api.nvim_get_current_line()
-		local col = vim.api.nvim_win_get_cursor(0)[2]
-		local new_line = line:sub(1, col - #trigger) .. line:sub(col + 1)
-		vim.api.nvim_set_current_line(new_line)
-		-- Move cursor back to the correct position
-		vim.api.nvim_win_set_cursor(0, { vim.api.nvim_win_get_cursor(0)[1], col - #trigger })
-		-- Expand the snippet
+	if not snippet then return end
+
+	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+	local start_col = col - #trigger + 1
+
+	-- Replace trigger with empty string
+	vim.api.nvim_buf_set_text(0, row - 1, start_col - 1, row - 1, col, {""})
+	-- Move cursor to insertion point
+	vim.api.nvim_win_set_cursor(0, {row, start_col - 1})
+
+	-- Schedule expansion to ensure cursor is in place
+	vim.schedule(function()
 		vim.snippet.expand(snippet)
-	end
+	end)
 end
 
--- Function to navigate placeholders
-local function jump(direction)
+-- Jump to next/previous placeholder if snippet is active
+local function try_jump(direction)
 	if vim.snippet.active({ direction = direction }) then
-		jump_count = jump_count + 1
-		local prev_pos = vim.api.nvim_win_get_cursor(0)
 		vim.snippet.jump(direction)
-		local new_pos = vim.api.nvim_win_get_cursor(0)
-		-- If the cursor didn't move or we've exceeded the placeholder count, stop the snippet
-		if (prev_pos[1] == new_pos[1] and prev_pos[2] == new_pos[2]) or
-			(placeholder_count <= 1) or
-			(jump_count >= placeholder_count) then
-			vim.snippet.stop()
-			current_snippet = nil
-			placeholder_count = 0
-			jump_count = 0
-			return false
-		end
 		return true
+	else
+		return false
 	end
-	current_snippet = nil
-	placeholder_count = 0
-	jump_count = 0
-	return false
 end
 
 -- Keymaps
 vim.keymap.set({ "i", "s" }, "<C-e>", expand_snippet, { desc = "Expand snippet" })
+
 vim.keymap.set({ "i", "s" }, "<Tab>", function()
-	return jump(1) or vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-end, { desc = "Jump to next placeholder or insert tab" })
+	if not try_jump(1) then
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+	end
+end, { desc = "Jump to next placeholder or insert Tab" })
+
 vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
-	return jump(-1) or vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true), "n", false)
-end, { desc = "Jump to previous placeholder or insert shift-tab" })
+	if not try_jump(-1) then
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true), "n", false)
+	end
+end, { desc = "Jump to previous placeholder or insert Shift-Tab" })
