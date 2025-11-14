@@ -1,0 +1,8 @@
+{
+	"vardump and die": {
+		"body": [
+			"var_dump($1); die;$0"
+		],
+		"prefix": "vdd"
+	}
+}
