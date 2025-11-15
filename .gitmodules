@@ -49,3 +49,6 @@
 [submodule "pack/plugins/start/nvim-web-devicons"]
 	path = pack/plugins/start/nvim-web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons
+[submodule "pack/plugins/start/conform.nvim"]
+	path = pack/plugins/start/conform.nvim
+	url = https://github.com/stevearc/conform.nvim

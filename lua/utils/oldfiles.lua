@@ -78,6 +78,7 @@ local function browse_oldfiles(filter_dir, exclude_git)
 	end
 
 	-- Set keymaps for different opening methods
+	-- stylua: ignore
 	vim.keymap.set("n", "<CR>", function() open_file("edit") end, { buffer = buf, noremap = true, silent = true })
 	vim.keymap.set("n", "s", function() open_file("split") end, { buffer = buf, noremap = true, silent = true })
 	vim.keymap.set("n", "v", function() open_file("vsplit") end, { buffer = buf, noremap = true, silent = true })
