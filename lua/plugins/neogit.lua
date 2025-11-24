@@ -6,7 +6,7 @@ if okay then
 
 	neogit.setup {
 		graph_style ="unicode",
-		kind = "floating",
+		kind = "tab",
 		floating = {
 			width = 0.9,
 			height = 0.8,
