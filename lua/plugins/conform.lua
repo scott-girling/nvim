@@ -1,13 +1,15 @@
-local okay, _ = pcall(require, "conform")
-
-if okay then
-	require("conform").setup({
+local M = {
+  'stevearc/conform.nvim',
+  opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			nix = { "nixfmt" },
 		},
-	})
+  },
+}
+local okay, _ = pcall(require, "conform")
 
+if okay then
 	vim.api.nvim_create_user_command("Format", function(args)
 		local range = nil
 		if args.count ~= -1 then
@@ -20,3 +22,5 @@ if okay then
 		require("conform").format({ async = true, lsp_format = "fallback", range = range })
 	end, { range = true })
 end
+
+return M

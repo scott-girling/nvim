@@ -1,7 +1,0 @@
-require("plugins.treesitter")
-require("plugins.neotree")
-require("plugins.blink")
-require("plugins.neogit")
-require("plugins.trouble")
-require("plugins.gitsigns")
-require("plugins.conform")

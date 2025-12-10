@@ -1,3 +1,2 @@
-require("base")
+require("config")
 require("utils")
-require("plugins")

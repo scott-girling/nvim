@@ -1,17 +1,23 @@
-local okay, _ = pcall(require, 'neogit')
-
-if okay then
-	local s = vim.keymap.set
-	local neogit = require 'neogit'
-
-	neogit.setup {
+local M = {
+	"NeogitOrg/neogit",
+	lazy = true,
+	dependencies = {
+		"nvim-lua/plenary.nvim",         -- required
+		"sindrets/diffview.nvim",        -- optional - Diff integration
+		"nvim-mini/mini.pick",           -- optional
+	},
+	cmd = "Neogit",
+	opts = {
 		graph_style ="unicode",
 		kind = "tab",
 		floating = {
 			width = 0.9,
 			height = 0.8,
 		}
+	},
+	keys = {
+		{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
 	}
+}
 
-	s("n", "<leader>gg", ":Neogit<cr>")
-end
+return M

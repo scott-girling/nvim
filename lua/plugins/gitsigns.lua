@@ -1,3 +1,7 @@
+local M = {
+"lewis6991/gitsigns.nvim"
+}
+
 local okay, _ = pcall(require, 'gitsigns')
 
 if okay then
@@ -5,3 +9,5 @@ if okay then
 
 	s("n", "<leader>gb", "<cmd>Gitsigns blame<cr>")
 end
+
+return M

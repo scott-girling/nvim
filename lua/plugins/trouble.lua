@@ -1,10 +1,39 @@
-local okay, _ = pcall(require, 'trouble')
+local M = {
+	"folke/trouble.nvim",
+	opts = {}, -- for default options, refer to the configuration section for custom setup.
+	cmd = "Trouble",
+	keys = {
+		{
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
+		},
+		{
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
+		},
+		{
+			"<leader>cs",
+			"<cmd>Trouble symbols toggle focus=false<cr>",
+			desc = "Symbols (Trouble)",
+		},
+		{
+			"<leader>cl",
+			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			desc = "LSP Definitions / references / ... (Trouble)",
+		},
+		{
+			"<leader>xL",
+			"<cmd>Trouble loclist toggle<cr>",
+			desc = "Location List (Trouble)",
+		},
+		{
+			"<leader>xQ",
+			"<cmd>Trouble qflist toggle<cr>",
+			desc = "Quickfix List (Trouble)",
+		},
+	},
+}
 
-if okay then
-	require('trouble').setup()
-	local s = vim.keymap.set
-
-	s("n", "<leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")
-	s("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=true<cr>")
-	s("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=true win.position=right<cr>")
-end
+return M
