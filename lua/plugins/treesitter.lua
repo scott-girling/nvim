@@ -6,8 +6,16 @@ local M = {
 	branch = 'master',
 	lazy = false,
 	build = ":TSUpdate",
-	config = function ()
-		require'nvim-treesitter.configs'.setup{
+	opt = function ()
+		require'treesitter-context'.setup({
+			enable = true
+		})
+
+		vim.keymap.set("n", "[c", function()
+			require("treesitter-context").go_to_context(vim.v.count1)
+		end, { silent = true })
+
+		return {
 			ensure_installed = {
 				"c",
 				"lua",
@@ -26,14 +34,6 @@ local M = {
 				enable = true,
 			},
 		}
-
-		require'treesitter-context'.setup({
-			enable = true
-		})
-
-		vim.keymap.set("n", "[c", function()
-			require("treesitter-context").go_to_context(vim.v.count1)
-		end, { silent = true })
 	end
 }
 
