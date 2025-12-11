@@ -2,9 +2,9 @@ local M = {
 	"NeogitOrg/neogit",
 	lazy = true,
 	dependencies = {
-		"nvim-lua/plenary.nvim",         -- required
-		"sindrets/diffview.nvim",        -- optional - Diff integration
-		"nvim-mini/mini.pick",           -- optional
+		"nvim-lua/plenary.nvim",
+		"sindrets/diffview.nvim",
+		"folke/snacks.nvim",
 	},
 	cmd = "Neogit",
 	opts = {
